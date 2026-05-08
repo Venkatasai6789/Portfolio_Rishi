@@ -3,7 +3,9 @@ import { AnimatePresence } from 'motion/react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
+import EducationWalkthrough from './components/EducationWalkthrough';
 import Projects from './components/Projects';
+import Blogs from './components/Blogs';
 import Contact from './components/Contact';
 import IntroScreen from './components/IntroScreen';
 
@@ -26,18 +28,20 @@ export default function App() {
         <Header />
         
         <main className="flex-grow pt-32 pb-20 px-6 lg:px-32 max-w-7xl mx-auto w-full relative z-10">
-          <Hero />
+          <Hero ready={!showIntro} />
           <About />
+          <EducationWalkthrough />
           <Projects />
+          <Blogs />
           <Contact />
         </main>
         
         <footer className="mt-auto px-6 lg:px-32 pb-8 pt-8 border-t border-zinc-800/50 flex flex-col md:flex-row justify-between items-center text-xs text-zinc-500 max-w-7xl mx-auto w-full gap-4 z-10 relative">
           <div className="font-mono">&copy; {new Date().getFullYear()} Rishitha Tedlapalli. Built with React.</div>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-purple-400 transition-colors">GitHub</a>
-            <a href="#" className="hover:text-purple-400 transition-colors">LinkedIn</a>
-            <a href="#" className="hover:text-purple-400 transition-colors">Twitter</a>
+            <a href="https://github.com/Rishitha7272" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition-colors">GitHub</a>
+            <a href="https://www.linkedin.com/in/rishitha-tedlapalli-558480307/" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition-colors">LinkedIn</a>
+            <a href="https://www.instagram.com/rishiii_tedlapalli/" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition-colors">Instagram</a>
           </div>
         </footer>
       </div>

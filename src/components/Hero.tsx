@@ -1,19 +1,18 @@
 import { motion } from 'motion/react';
-import { MapPin, Code2, Send, Github, Linkedin, Instagram, Twitter } from 'lucide-react';
+import { MapPin, Code2, Send, Github, Linkedin, Instagram, Download } from 'lucide-react';
 
 const skills = [
   "AI Enthusiast",
-  "Software Engineer",
-  "Frontend Developer",
+  "Full Stack developer",
   "React Specialist",
-  "Problem Solver",
-  "Deep Learning Expert"
+  "Analyst",
+  "Mongo DB"
 ];
 
 // Helper to split text for character animations
-const animatedText = "Artificial Intelligence Engineer | Frontend Developer";
+const animatedText = "Full Stack Developer | Machine learning";
 
-export default function Hero() {
+export default function Hero({ ready = false }: { ready?: boolean }) {
   return (
     <section id="home" className="relative min-h-[90vh] flex flex-col justify-center pt-24 mb-20 w-full">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center relative">
@@ -21,7 +20,7 @@ export default function Hero() {
         <div className="lg:col-span-7 z-10 w-full flex flex-col lg:items-start">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={ready ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="w-full max-w-2xl"
           >
@@ -63,22 +62,31 @@ export default function Hero() {
               </h1>
             </div>
             
-            <div className="text-lg md:text-xl text-zinc-200 font-medium mb-6 flex flex-wrap max-w-2xl">
+            <motion.div
+              initial={{ opacity: 0, y: 24, filter: 'blur(6px)' }}
+              animate={ready ? { opacity: 1, y: 0, filter: 'blur(0px)' } : { opacity: 0, y: 24, filter: 'blur(6px)' }}
+              transition={{ delay: 0.3, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+              className="text-lg md:text-xl text-zinc-200 font-medium mb-6 flex flex-wrap max-w-2xl"
+            >
               {animatedText.split(" ").map((word, wordIndex) => (
                 <span key={wordIndex} className="inline-flex overflow-hidden mr-2 mb-1">
                   {word.split("").map((char, charIndex) => (
                     <motion.span
                       key={charIndex}
-                      initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
-                      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                      transition={{ delay: 1.2 + (wordIndex * 6 + charIndex) * 0.04, duration: 0.5, ease: "easeOut" }}
+                      initial={{ opacity: 0, y: 18, filter: 'blur(4px)' }}
+                      animate={ready ? { opacity: 1, y: 0, filter: 'blur(0px)' } : { opacity: 0, y: 18, filter: 'blur(4px)' }}
+                      transition={{
+                        delay: 0.4 + (wordIndex * 6 + charIndex) * 0.038,
+                        duration: 0.5,
+                        ease: 'easeOut',
+                      }}
                     >
                       {char}
                     </motion.span>
                   ))}
                 </span>
               ))}
-            </div>
+            </motion.div>
             
             <motion.p 
               initial={{ opacity: 0, filter: "blur(5px)" }}
@@ -134,7 +142,7 @@ export default function Hero() {
                   <MapPin className="w-5 h-5" />
                   <span className="font-semibold text-xs uppercase tracking-wider text-purple-100">Location</span>
                 </div>
-                <p className="text-white text-sm font-light relative z-10">Surat, Gujarat, India</p>
+                <p className="text-white text-sm font-light relative z-10">Tirupati, Andhra pradesh, India</p>
               </motion.div>
 
               <motion.div 
@@ -151,7 +159,7 @@ export default function Hero() {
                   <Code2 className="w-5 h-5" />
                   <span className="font-semibold text-xs uppercase tracking-wider text-blue-100">Expertise</span>
                 </div>
-                <p className="text-white text-sm font-light leading-relaxed relative z-10">AI/ML, Problem Solving</p>
+                <p className="text-white text-sm font-light leading-relaxed relative z-10">full stack development, problem solving</p>
               </motion.div>
 
               <motion.div 
@@ -168,8 +176,8 @@ export default function Hero() {
                   <Send className="w-5 h-5" />
                   <span className="font-semibold text-xs uppercase tracking-wider text-rose-100">Contact</span>
                 </div>
-                <a href="mailto:hello@example.com" className="text-white text-[13px] font-light break-all hover:text-white transition-colors relative z-10 mt-auto">
-                  hello@example.com
+                <a href="mailto:tedlapallirishitha@gmail.com" className="text-white text-[13px] font-light break-all hover:text-white transition-colors relative z-10 mt-auto">
+                  tedlapallirishitha@gmail.com
                 </a>
               </motion.div>
             </div>
@@ -181,17 +189,21 @@ export default function Hero() {
               transition={{ delay: 2.8, duration: 0.5 }}
               className="flex flex-wrap items-center gap-4 max-w-3xl mt-8"
             >
-              <a href="#" className="p-3 sm:p-4 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-xl hover:bg-white/20 hover:border-purple-500/50 transition-all duration-300 group shadow-[0_8px_32px_0_rgba(0,0,0,0.4)]">
+              <a href="https://github.com/Rishitha7272" target="_blank" rel="noopener noreferrer" className="p-3 sm:p-4 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-xl hover:bg-white/20 hover:border-purple-500/50 transition-all duration-300 group shadow-[0_8px_32px_0_rgba(0,0,0,0.4)]">
                 <Github className="w-5 h-5 text-white group-hover:text-purple-400 group-hover:scale-110 transition-transform" />
               </a>
-              <a href="#" className="p-3 sm:p-4 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-xl hover:bg-white/20 hover:border-blue-500/50 transition-all duration-300 group shadow-[0_8px_32px_0_rgba(0,0,0,0.4)]">
+              <a href="https://www.linkedin.com/in/rishitha-tedlapalli-558480307/" target="_blank" rel="noopener noreferrer" className="p-3 sm:p-4 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-xl hover:bg-white/20 hover:border-blue-500/50 transition-all duration-300 group shadow-[0_8px_32px_0_rgba(0,0,0,0.4)]">
                 <Linkedin className="w-5 h-5 text-white group-hover:text-blue-400 group-hover:scale-110 transition-transform" />
               </a>
-              <a href="#" className="p-3 sm:p-4 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-xl hover:bg-white/20 hover:border-pink-500/50 transition-all duration-300 group shadow-[0_8px_32px_0_rgba(0,0,0,0.4)]">
+              <a href="https://www.instagram.com/rishiii_tedlapalli/" target="_blank" rel="noopener noreferrer" className="p-3 sm:p-4 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-xl hover:bg-white/20 hover:border-pink-500/50 transition-all duration-300 group shadow-[0_8px_32px_0_rgba(0,0,0,0.4)]">
                 <Instagram className="w-5 h-5 text-white group-hover:text-pink-400 group-hover:scale-110 transition-transform" />
               </a>
-              <a href="#" className="p-3 sm:p-4 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-xl hover:bg-white/20 hover:border-sky-500/50 transition-all duration-300 group shadow-[0_8px_32px_0_rgba(0,0,0,0.4)]">
-                <Twitter className="w-5 h-5 text-white group-hover:text-sky-400 group-hover:scale-110 transition-transform" />
+              {/* Download Resume Button */}
+              <a href="/resume.pdf" download className="flex items-center gap-2 px-6 py-3 sm:py-4 rounded-2xl bg-gradient-to-r from-[#4facfe] to-[#c471ed] text-white font-medium hover:opacity-90 transition-all duration-300 shadow-[0_8px_32px_0_rgba(196,113,237,0.4)] hover:shadow-[0_8px_32px_0_rgba(79,172,254,0.6)] group relative overflow-hidden">
+                {/* Button shine effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out"></div>
+                <span className="text-[13px] sm:text-sm whitespace-nowrap relative z-10">Download Resume</span>
+                <Download className="w-4 h-4 group-hover:-translate-y-0.5 group-hover:scale-110 transition-all relative z-10" />
               </a>
             </motion.div>
           </motion.div>

@@ -11,7 +11,6 @@ export default function Contact() {
         className="text-center max-w-2xl px-6"
       >
         <div className="w-20 h-1 bg-purple-500 rounded-full mb-10 mx-auto"></div>
-        <h2 className="text-sm font-medium text-purple-400 uppercase tracking-[0.3em] mb-6 shadow-purple-500/20">What's Next?</h2>
         <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-8">
           Get in Touch
         </h3>
@@ -20,7 +19,7 @@ export default function Contact() {
         </p>
         
         <a 
-          href="mailto:hello@example.com" 
+          href="mailto:tedlapallirishitha@gmail.com" 
           className="inline-block px-10 py-4 bg-brand-purple hover:bg-purple-600 text-white rounded-lg transition-all shadow-[0_0_20px_rgba(58,1,92,0.4)] hover:shadow-[0_0_30px_rgba(157,78,221,0.6)] font-medium tracking-wide"
         >
           Say Hello
