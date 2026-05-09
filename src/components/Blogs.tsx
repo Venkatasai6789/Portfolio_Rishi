@@ -27,26 +27,36 @@ const blogs = [
 export default function Blogs() {
   return (
     <section id="blog" className="py-24 max-w-6xl mx-auto relative z-10 w-full">
-      {/* Section Divider */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl flex items-center justify-center opacity-70 mb-24">
-        <div className="h-[1px] w-1/2 bg-gradient-to-r from-transparent via-white/5 to-[#c471ed]/50"></div>
-        <div className="w-2 h-2 rounded-full bg-white shadow-[0_0_15px_3px_rgba(196,113,237,0.8)] mx-2"></div>
-        <div className="h-[1px] w-1/2 bg-gradient-to-l from-transparent via-white/5 to-[#c471ed]/50"></div>
-      </div>
-
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8 }}
-        className="mb-16 mt-12"
+        className="mb-16 flex items-center justify-center gap-5"
       >
-        <div className="flex items-center gap-4 mb-4">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">
-            The <span className="bg-gradient-to-r from-[#4facfe] via-[#c471ed] to-[#3a015c] text-transparent bg-clip-text drop-shadow-[0_0_15px_rgba(196,113,237,0.4)]">blogs</span>
-          </h2>
-          <div className="h-[1px] bg-gradient-to-r from-[#4facfe]/50 via-[#c471ed]/50 to-transparent flex-grow max-w-sm hidden md:block"></div>
-        </div>
+        {/* Left gradient line */}
+        <div
+          className="h-[2px] w-24 rounded-full hidden sm:block"
+          style={{ background: 'linear-gradient(to right, transparent, #4facfe, #c471ed)' }}
+        />
+
+        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white whitespace-nowrap">
+          <span
+            className="bg-clip-text text-transparent"
+            style={{
+              backgroundImage: 'linear-gradient(90deg, #4facfe 0%, #c471ed 60%, #9b59b6 100%)',
+              filter: 'drop-shadow(0 0 18px rgba(196,113,237,0.45))',
+            }}
+          >
+            Blogs
+          </span>
+        </h2>
+
+        {/* Right gradient line */}
+        <div
+          className="h-[2px] w-24 rounded-full hidden sm:block"
+          style={{ background: 'linear-gradient(to left, transparent, #4facfe, #c471ed)' }}
+        />
       </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -17,9 +17,7 @@ export default function Header() {
   const navLinks = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#education' },
     { name: 'Projects', href: '#projects' },
-    { name: 'Blog', href: '#blog' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -29,7 +27,7 @@ export default function Header() {
         isScrolled ? 'bg-brand-black/80 backdrop-blur-md shadow-[0_1px_2px_rgba(255,255,255,0.05)] py-4' : 'bg-transparent py-8'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-24 flex justify-between items-center">
+      <div className="max-w-[1920px] mx-auto px-6 md:px-12 lg:px-24 flex justify-between items-center">
         <a href="#" className="flex items-center gap-3 z-50 group">
           {/* Logo icon */}
           <div className="w-10 h-10 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center text-purple-400 group-hover:border-purple-500 transition-colors shadow-[0_0_15px_rgba(58,1,92,0.5)]">

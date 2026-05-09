@@ -127,7 +127,7 @@ export default function Hero({ ready = false }: { ready?: boolean }) {
             </div>
 
             {/* Floating Glass Info Cards - Space theme */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl xl:max-w-5xl">
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: [0, -10, 0] }}
@@ -215,7 +215,7 @@ export default function Hero({ ready = false }: { ready?: boolean }) {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
-            className="relative w-full aspect-[4/5] max-w-sm"
+            className="relative w-full aspect-[4/5] max-w-md xl:max-w-lg"
           >
             {/* Ambient glows behind image */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-purple-600/20 rounded-full blur-[80px]"></div>
