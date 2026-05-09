@@ -274,10 +274,10 @@ export default function About() {
             {/* Glass card */}
             <div
               onClick={() => {
-                if (!typewriterDone) {
-                  setSkipTypewriter(true);
-                  setTypewriterDone(true);
-                }
+                setPhase('title-in');
+                setTypewriterDone(false);
+                setSkipTypewriter(false);
+                setShowHobbies(false);
               }}
               className="relative rounded-3xl overflow-hidden cursor-pointer"
               style={{
@@ -396,7 +396,7 @@ export default function About() {
                     </div>
 
                     {/* Right Section: "c|" Semi-Circle Animation perfectly flush to the right edge */}
-                    <div className="relative w-full xl:w-1/2 h-[600px] lg:h-[800px] arc-container flex items-center justify-end mt-12 xl:mt-0 z-10" style={{ '--radius': '200px' } as React.CSSProperties}>
+                    <div className="relative w-full xl:w-1/2 h-[600px] lg:h-[800px] arc-container flex items-center justify-end mt-12 xl:mt-0 z-10" style={{ '--radius': '200px' } as Record<string, string>}>
                       <style>{`
                         @media (min-width: 640px) { .arc-container { --radius: 300px; } }
                         @media (min-width: 1024px) { .arc-container { --radius: 400px; } }
@@ -434,10 +434,11 @@ export default function About() {
                     
                   </div>
 
-                  {/* Education Component Removed */}
-                </motion.div>
-              )}
-            </AnimatePresence>
+
+
+              </motion.div>
+            )}
+          </AnimatePresence>
           </motion.div>
         )}
 
