@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform, useSpring } from 'motion/react';
-import { useRef } from 'react';
+import { useRef, useState, type MouseEvent } from 'react';
 
 const educationData = [
   { 
@@ -66,12 +66,37 @@ const educationData = [
 
 export default function Education() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const dragStartX = useRef(0);
+  const scrollStartLeft = useRef(0);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
   });
 
   const pathLength = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
+  
+  const onMouseDown = (event: MouseEvent<HTMLDivElement>) => {
+    const container = scrollRef.current;
+    if (!container) return;
+    setIsDragging(true);
+    dragStartX.current = event.pageX;
+    scrollStartLeft.current = container.scrollLeft;
+  };
+
+  const onMouseMove = (event: MouseEvent<HTMLDivElement>) => {
+    if (!isDragging) return;
+    const container = scrollRef.current;
+    if (!container) return;
+    event.preventDefault();
+    const walk = event.pageX - dragStartX.current;
+    container.scrollLeft = scrollStartLeft.current - walk;
+  };
+
+  const onMouseUp = () => {
+    setIsDragging(false);
+  };
 
   return (
     <section ref={containerRef} className="relative min-h-[100vh] w-full py-32 overflow-hidden bg-black flex flex-col items-center">
