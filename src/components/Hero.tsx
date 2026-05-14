@@ -17,7 +17,7 @@ export default function Hero({ ready = false }: { ready?: boolean }) {
     <section id="home" className="relative min-h-[90vh] flex flex-col justify-center pt-24 mb-20 w-full">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center relative">
         {/* Left side content */}
-        <div className="lg:col-span-7 z-10 w-full flex flex-col lg:items-start">
+        <div className="lg:col-span-6 z-10 w-full flex flex-col lg:items-start">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={ready ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -210,25 +210,34 @@ export default function Hero({ ready = false }: { ready?: boolean }) {
         </div>
 
         {/* Right side portrait area */}
-        <div className="lg:col-span-5 relative mt-20 lg:mt-0 flex justify-end lg:justify-center">
+        <div className="lg:col-span-6 relative mt-12 lg:mt-0 flex justify-center lg:justify-end">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
-            className="relative w-full aspect-[4/5] max-w-md xl:max-w-lg"
+            className="relative w-full aspect-square max-w-[320px] sm:max-w-md md:max-w-xl xl:max-w-2xl"
           >
             {/* Ambient glows behind image */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-purple-600/20 rounded-full blur-[80px]"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-navy/60 rounded-full blur-[80px]"></div>
+            <div className="absolute top-0 right-0 w-32 h-32 md:w-64 md:h-64 bg-purple-600/20 rounded-full blur-[40px] md:blur-[80px]"></div>
+            <div className="absolute bottom-0 left-0 w-32 h-32 md:w-64 md:h-64 bg-brand-navy/60 rounded-full blur-[40px] md:blur-[80px]"></div>
             
-            {/* Placeholder for portrait */}
-            <div className="relative w-full h-full rounded-[2rem] overflow-hidden border border-zinc-800/50 bg-[#05101f] flex flex-col items-center justify-center p-8 group">
-               <div className="w-32 h-32 rounded-full border border-zinc-800 mb-6 flex items-center justify-center bg-zinc-900 group-hover:scale-105 transition-transform duration-500">
-                  <span className="text-zinc-600">Photo</span>
-               </div>
-               <p className="text-zinc-400 text-sm text-center max-w-[200px] leading-relaxed">
-                 Replace this block with your portrait image.
-               </p>
+            {/* Personal Portrait Image - Full Version */}
+            <div className="relative w-full h-full bg-black/40 group overflow-visible rounded-2xl md:rounded-3xl">
+              <motion.div 
+                className="relative w-full h-full transition-all duration-700 group-hover:scale-[1.02]"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1 }}
+              >
+                <img 
+                  src="/me2.jpeg" 
+                  alt="Rishitha Tedlapalli"
+                  className="w-full h-full object-contain"
+                />
+              </motion.div>
+              
+              {/* Subtle ambient glow behind the image to make it pop without a frame */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-10 pointer-events-none" />
             </div>
           </motion.div>
         </div>

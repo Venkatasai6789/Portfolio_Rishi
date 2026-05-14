@@ -34,8 +34,7 @@ const projects = [
     description: 'A fully-featured RAG-based conversational study assistant that ingests academic PDFs, retrieves context-aware knowledge, and delivers intelligent multi-turn responses for seamless student learning.',
     stack: ['Python', 'LangChain', 'Gemini API', 'FAISS', 'React.js'],
     image: '/edubot.png',
-    code: '#',
-    live: '#',
+    code: 'https://github.com/Rishitha7272/Edubot',
   },
 ];
 
@@ -180,23 +179,6 @@ export default function Projects() {
                   >
                     <Code2 size={13} />
                     Code
-                  </a>
-                  <a
-                    href={project.live}
-                    target={project.live !== '#' ? '_blank' : undefined}
-                    rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                    className="flex items-center gap-1.5 text-xs font-semibold px-4 py-2 rounded-xl text-purple-100 transition-all duration-300 hover:scale-105 hover:text-white"
-                    style={{
-                      background: 'linear-gradient(135deg, rgba(155,89,182,0.35) 0%, rgba(196,113,237,0.25) 100%)',
-                      border: '1px solid rgba(196,113,237,0.45)',
-                      backdropFilter: 'blur(10px)',
-                      WebkitBackdropFilter: 'blur(10px)',
-                      boxShadow: '0 2px 16px rgba(196,113,237,0.25)',
-                    }}
-                  >
-                    <ExternalLink size={13} />
-                    Live
                   </a>
                 </div>
               </div>
