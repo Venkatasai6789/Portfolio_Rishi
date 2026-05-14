@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform, useSpring } from 'motion/react';
-import { useRef, useState, type MouseEvent } from 'react';
+import { useEffect, useRef, useState, type MouseEvent } from 'react';
 
 const educationData = [
   { 
@@ -97,6 +97,13 @@ export default function Education() {
   const onMouseUp = () => {
     setIsDragging(false);
   };
+
+  useEffect(() => {
+    if (!isDragging) return;
+    const handleMouseUp = () => setIsDragging(false);
+    window.addEventListener('mouseup', handleMouseUp);
+    return () => window.removeEventListener('mouseup', handleMouseUp);
+  }, [isDragging]);
 
   return (
     <section ref={containerRef} className="relative min-h-[100vh] w-full py-32 overflow-hidden bg-black flex flex-col items-center">
