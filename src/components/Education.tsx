@@ -99,9 +99,10 @@ export default function Education() {
   };
 
   useEffect(() => {
-    if (!isDragging) return;
     const handleMouseUp = () => setIsDragging(false);
-    window.addEventListener('mouseup', handleMouseUp);
+    if (isDragging) {
+      window.addEventListener('mouseup', handleMouseUp);
+    }
     return () => window.removeEventListener('mouseup', handleMouseUp);
   }, [isDragging]);
 
